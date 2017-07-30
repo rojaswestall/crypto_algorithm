@@ -1,2 +1,2 @@
 # crypto_algorithm
-First algorithm for buying and selling crypto with gdax to get familiar with their node.js api
+Just becoming familiar with the node.js gdax api for crypto. This will demonstrate some basic calls and howto use them
