@@ -195,7 +195,7 @@ const sellParams = {
 }
 
 gdaxAccoint.sell(sellParams, wtfHappensWhenYouTrade);
-}
+};
 
 // BTC.getProductTicker(sellBitcoin)
 ///////////////////////////////////////////////////////////
@@ -203,10 +203,10 @@ gdaxAccoint.sell(sellParams, wtfHappensWhenYouTrade);
 
 
 
-var orderNotFilled = true;
-while (orderNotFilled) {
-	
-}
+// var orderNotFilled = true;
+// while (orderNotFilled) {
+
+// }
 
 
 
