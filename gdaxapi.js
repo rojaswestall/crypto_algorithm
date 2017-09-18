@@ -29,20 +29,21 @@ var gdaxAccount = new Gdax.AuthenticatedClient(key, b64secret, passphrase, sandb
 
 
 var LTCOrders = function(err, response, data) {
-	// [inexing starting from 50 orders away from ticker] [1) Access Price  2) Volume  3) Number of Orders]
+	// [inexing starting from 50 orders away from ticker] [0) Access Price  1) Volume  2) Number of Orders]
 	console.log(data.bids);
 
 	// Add volumes for both ask and bids 
 	var totalVolumeBids = 0;
 	var totalVolumeAsks = 0;
 	var largestJumpBids = [0, 0, 0];
+	// {['0', '0', 0]};
 	for (var i = 0; i < 50; i++) {
-		if (i != 0 && data.bids[i][2] > largestJumpBids[2]) {
+		if (i != 0 && parseInt(data.bids[i][1]) > largestJumpBids[1]) {
 			largestJumpBids = data.bids[i];
 			console.log(largestJumpBids);
 		}
-		totalVolumeBids = totalVolumeBids + data.bids[i][2];
-		totalVolumeAsks = totalVolumeAsks + data.asks[i][2];
+		totalVolumeBids = totalVolumeBids + parseInt(data.bids[i][1]);
+		totalVolumeAsks = totalVolumeAsks + parseInt(data.asks[i][1]);
 	}
 	
 	console.log('Ask Volume: ' + totalVolumeAsks.toString());
