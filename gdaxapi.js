@@ -30,29 +30,30 @@ var sandboxURI = 'https://api-public.sandbox.gdax.com';
 
 var LTCOrders = function(err, response, data) {
 // [inexing starting from 50 orders away from ticker] [0) Access Price  1) Volume  2) Number of Orders]
+console.log('bids:');
 console.log(data.bids);
+console.log('asks: ');
+console.log(data.asks);
 
 // Add volumes for both ask and bids 
 var totalVolumeBids = 0;
 var totalVolumeAsks = 0;
 var largestJumpBids = [0, 0, 0];
-var largestJumpAsks = [0, 0 ,0];
+var largestJumpAsks = [0, 0, 0];
 // {['0', '0', 0]};
 for (var i = 0; i < 50; i++) {
 if (parseInt(data.bids[i][1]) > largestJumpBids[1]) {
 largestJumpBids = data.bids[i];
-console.log(largestJumpBids);
 }
 if (parseInt(data.asks[i][1]) > largestJumpAsks[1]) {
 largestJumpAsks = data.asks[i];
-console.log(largestJumpAsks);
 }
 totalVolumeBids = totalVolumeBids + parseInt(data.bids[i][1]);
 totalVolumeAsks = totalVolumeAsks + parseInt(data.asks[i][1]);
 }
 
-console.log('Ask Volume: ' + totalVolumeAsks.toString());
 console.log('Bid Volume: ' + totalVolumeBids.toString());
+console.log('Ask Volume: ' + totalVolumeAsks.toString());
 console.log('largest Jump Bids: ' + largestJumpBids.toString());
 console.log('largest Jump Asks: ' + largestJumpAsks.toString());
 };
