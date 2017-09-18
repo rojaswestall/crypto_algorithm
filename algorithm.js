@@ -302,6 +302,17 @@ gdaxAccoint.sell(sellParams, wtfHappensWhenYouTrade);
 
 
 
+////// ARBITRAGE LOGIC ///////
+
+// 1. See low price on market A and high Price on market B
+
+// 2. 
+
+
+
+
+
+
 
 
 

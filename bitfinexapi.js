@@ -9,6 +9,8 @@ var bitfinexPriceList = {
 	'NEO': 0,
 }
 
+
+//////// Callback method of setting the prices ////////
 // setPrices(function(msg) {
 // 	// bitfinexPriceList.coin = price;
 // 	console.log(msg);
@@ -50,6 +52,7 @@ var bitfinexPriceList = {
 // 		})
 // 	})
 // };
+
 
 // setTimeout(function() {
 // 	callback('From Callback Method');
@@ -111,11 +114,15 @@ var getNeoPrice = new Promise(function(resolve,reject){
 	})
 });
 
-Promise.all([getBitcoinPrice, getEthereumPrice, getLitecoinPrice, getNeoPrice]).then(function(info) {
+function setPrices() {
+	Promise.all([getBitcoinPrice, getEthereumPrice, getLitecoinPrice, getNeoPrice]).then(function(info) {
 	console.log(info);
 	console.log('From Promises:');
 	console.log(bitfinexPriceList);
-})
+	})
+};
+
+setPrices()
 
 
 //////// A COUPLE OF METHODS FOR PROMISES ////////
